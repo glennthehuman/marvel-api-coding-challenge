@@ -1,0 +1,17 @@
+{
+  "name": "cli-marvel-sync",
+  "version": "1.0.0",
+  "description": "A CLI (Command Line Interface) application to get data from the official Marvel API and cache the results in the local DB.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app --help"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "md5": "^2.3.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.6",
+    "yargs": "^10.0.3"
+  }
+}

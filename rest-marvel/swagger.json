@@ -1,0 +1,90 @@
+{
+  "swagger":"2.0",
+  "info":{
+    "version":"1.0.0",
+    "title":"Coding Challenge",
+    "description":"Xendit Marvel API Coding Challenge",
+    "license":{
+      "name":"MIT",
+      "url":"https://opensource.org/licenses/MIT"
+    }
+  },
+  "host":"localhost:8080",
+  "basePath":"",
+  "tags":[
+    {
+      "name":"Characters",
+      "description":"Endpoints for getting character data."
+    }
+  ],
+  "schemes":[
+    "http"
+  ],
+  "consumes":[
+    "application/json"
+  ],
+  "produces":[
+    "application/json"
+  ],
+  "paths":{
+    "/characters":{
+      "get":{
+        "tags":[
+          "Characters"
+        ],
+        "summary":"This returns all the Marvel character IDs in a JSON array of numbers.",
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/characters/{characterId}":{
+      "get":{
+        "tags":[
+          "Characters"
+        ],
+        "summary":"This returns the ID, name and description of the character with the given ID.",
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "description": "ID of the character to get",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref":"#/definitions/Character"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions":{
+    "Character":{
+      "properties":{
+        "id":{
+          "type":"integer"
+        },
+        "name":{
+          "type":"string"
+        },
+        "description":{
+          "type":"string"
+        }
+      }
+    }
+  }
+}
